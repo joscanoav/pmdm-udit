@@ -8,12 +8,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -23,8 +25,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.burgershop.ui.theme.BurgerShopTheme
 
 //ACTIVITY PRINCIPAL
@@ -41,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                  //  CatalogoHamburguesas(catalogoHamburguesas)
+                    CatalogoHamburguesas(catalogoHamburguesas)
                 }
             }
         }
@@ -143,10 +147,37 @@ fun TarjetaProducto(producto: Producto){
                 contentScale = ContentScale.Crop // Recorta la imagen sin deformarla
             )
 
-            //
+            // Segunda Column, con margen interior, para el texto y el boton
+            Column(
+                modifier = Modifier.padding(12.dp)
+            ) {
+                Text(
+                    text = producto.nombre,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
+
+                Spacer(modifier = Modifier.height(4.dp)) // hueco pequeño
+
+                Text(
+                    text = producto.precio,
+                    fontSize = 16.sp,
+                    color = MaterialTheme.colorScheme.primary // colore del tema
+                )
+
+                Spacer(modifier = Modifier.height(8.dp)) // hueco mediano
+
+                Button(
+                    onClick = {
+                        //De momento no hace nada: la interactividad
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("Añadir al carrito")
+                }
+            }
         }
     }
-
 }
 
 
