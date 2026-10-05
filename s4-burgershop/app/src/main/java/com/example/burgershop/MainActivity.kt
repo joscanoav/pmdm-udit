@@ -32,11 +32,55 @@ class MainActivity : ComponentActivity() {
                   //  CatalogoHamburguesas(catalogoHamburguesas)
                 }
             }
-
         }
     }
-
-
-
 }
 
+// MODELO DE DATOS
+//EL "molde" que define que informacion tiene cada producto
+
+data class Producto (
+    val nombre : String,
+    val precio: String,
+    val imanResId: Int // el identificador de la imagen en res/drawable
+)
+
+// DATOS DE PRUEBA (harcodeados)
+// De momento viven aqui mismo, en el código. No vienen de ningún servidor
+// ni base de datos
+
+val catalogoHamburguesas = listOf(
+    Producto(
+        "Clásica con Queso",
+        "6,50 €",
+        R.drawable.burger_clasica
+),
+
+    Producto(
+        "BBQ Bacon",
+        "7,90 €",
+        R.drawable.burger_bbq
+    ),
+
+    Producto(
+        "Doble Carne",
+        "8,50 €",
+        R.drawable.burger_doble
+    ),
+    Producto(
+        "Vegetariana",
+        "7,20 €",
+        R.drawable.burger_vegetariana
+    ),
+    Producto(
+        "Picante Jalapeño",
+        "7,80 €",
+        R.drawable.burger_picante
+    ),
+    Producto(
+        "Pollo Crispy",
+        "6,90 €",
+        R.drawable.burger_pollo
+    ),
+
+    )
