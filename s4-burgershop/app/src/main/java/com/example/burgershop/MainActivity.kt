@@ -15,6 +15,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -33,12 +36,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow.Companion.Ellipsis
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.burgershop.ui.theme.BurgerShopTheme
 import kotlinx.coroutines.delay
 import java.nio.file.WatchEvent
+
+
 
 //ACTIVITY PRINCIPAL
 // La puerta de entrada de app.
@@ -118,13 +124,17 @@ val catalogoHamburguesas = listOf(
 //tenga cientos de elementos
 @Composable
 fun CatalogoHamburguesas(productos: List<Producto>) {
-    LazyColumn(
+//    LazyColumn(
+//        modifier = Modifier.fillMaxSize(),
+//        // margen alredor de toda la lista
+//        contentPadding = PaddingValues(16.dp),
+//        // espacio entre una tarjeta y la siguiente
+//        verticalArrangement = Arrangement.spacedBy(16.dp)
+    LazyVerticalGrid(
+        columns = GridCells.Adaptive(minSize = 250.dp),
         modifier = Modifier.fillMaxSize(),
-        // margen alredor de toda la lista
         contentPadding = PaddingValues(16.dp),
-        // espacio entre una tarjeta y la siguiente
-        verticalArrangement = Arrangement.spacedBy(16.dp)
-
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(productos){ producto ->
             TarjetaProducto(producto)
@@ -164,7 +174,9 @@ fun TarjetaProducto(producto: Producto){
                 Text(
                     text = producto.nombre,
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,                              // NUEVO: Fuerza a 1 línea
+                    overflow = Ellipsis           // NUEVO: Añade "..." si no cabe
                 )
 
                 Spacer(modifier = Modifier.height(4.dp)) // hueco pequeño
@@ -173,6 +185,7 @@ fun TarjetaProducto(producto: Producto){
                     text = producto.precio,
                     fontSize = 16.sp,
                     color = MaterialTheme.colorScheme.primary // colore del tema
+
                 )
 
                 Spacer(modifier = Modifier.height(8.dp)) // hueco mediano
