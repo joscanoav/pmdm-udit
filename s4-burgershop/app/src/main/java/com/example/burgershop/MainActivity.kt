@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -22,6 +23,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -30,6 +37,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.burgershop.ui.theme.BurgerShopTheme
+import kotlinx.coroutines.delay
+import java.nio.file.WatchEvent
 
 //ACTIVITY PRINCIPAL
 // La puerta de entrada de app.
@@ -45,7 +54,8 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    CatalogoHamburguesas(catalogoHamburguesas)
+                    //CatalogoHamburguesas(catalogoHamburguesas)
+                    PantallaPrincipal()
                 }
             }
         }
@@ -179,6 +189,38 @@ fun TarjetaProducto(producto: Producto){
         }
     }
 }
+
+
+
+// PANTALLA DE PORTADA
+@Composable
+fun PantallaPrincipal(){
+
+    //remenber + mutableStateOf: crea una variable que Compose vigila
+    //Cuando su valor cambia, Compose vuelve a dibujar la pantalla solo,
+    // sin que tengas que hacer nada más
+
+    var mostrarPortada by remember { mutableStateOf(true) }
+    // LaunchedEffect: Lanza una tarea que se ejecuta una sola vez
+    // cuando la pantalla aparece . Debe esperar 1.5 s y luego
+    // cambia de estado para ocultar esa pantalla
+    LaunchedEffect(Unit) {
+        delay(1500)
+        mostrarPortada = false
+    }
+
+    if(mostrarPortada) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+            Text("🍔 BurgerShop", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+        }
+    } else {
+        CatalogoHamburguesas(productos = catalogoHamburguesas)
+    }
+}
+
+
+
+
 
 
 
