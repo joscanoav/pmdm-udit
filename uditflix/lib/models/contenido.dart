@@ -19,6 +19,7 @@ class Contenido {
     const Contenido({
         required this.id,
         required this.titulo,
+        required this.descripcion,
         required this.tipo,
         required this.duracion,
 
