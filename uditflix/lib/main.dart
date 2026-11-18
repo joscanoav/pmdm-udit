@@ -1,43 +1,59 @@
+
+//
+// ARCHIVO PRINCIPAL DE UDITFLIX
+//
+// Este archivo inicia nuestra aplicación Flutter.
+//
+// Desde aquí indicamos cuál será la primera pantalla
+// que verá el usuario.
+//
+
 import 'package:flutter/material.dart';
+
 import 'screens/catalogo_screen.dart';
 
-// Punto de entrada de aplicacion
+// Función principal.
+// En Dart, main() es el punto de entrada del programa.
 
 void main() {
-  runApp(const MyApp());
+
+  // Ejecutamos la aplicación Flutter.
+  runApp(const UDITflixApp());
+
 }
 
-// Widget principal de UDITflix
+// Widget principal de la aplicación.
+// MaterialApp proporciona los componentes visuales
+// y la configuración general de nuestra aplicación.
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class UDITflixApp extends StatelessWidget {
+
+  const UDITflixApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      //Nombre de nuestra aplicacion
-      title: 'UDITflix',
-      // Ocultamos la etiqueta DEBUG
-      debugShowCheckedModeBanner: false,
-      // Configuracion visual general.
-      theme: ThemeData(
-        useMaterial3: true,
-        // Color principal de nuestra aplicacion
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF5B2D90),
-        ),
-        // Color de fondo de pantallas
-        scaffoldBackgroundColor: const Color(0xFFF7F5FA),
 
-        // Aspecto de la barra superior
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF5B2D90),
-          foregroundColor: Colors.white,
-          centerTitle: false,
+    return MaterialApp(
+
+      // Quitamos la etiqueta de depuración.
+      debugShowCheckedModeBanner: false,
+
+      // Nombre de la aplicación.
+      title: 'UDITflix',
+
+      // Configuración visual general.
+      theme: ThemeData(
+
+        // Utilizamos Material Design.
+        useMaterial3: true,
+
+        // Color principal de la aplicación.
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
         ),
       ),
 
-      // Primera pantalla que verá el usuario.
+      // Primera pantalla que se muestra.
       home: const CatalogoScreen(),
 
     );
