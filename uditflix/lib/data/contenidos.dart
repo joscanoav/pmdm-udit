@@ -2,11 +2,10 @@
 //
 // DATOS SIMULADOS DE UDITFLIX
 //
-// En esta primera versión no tenemos una API ni una base de datos.
-// Por eso utilizamos una lista de objetos creada manualmente.
-//
-// Más adelante sustituiremos estos datos por información
-// que recibiremos desde el servidor mediante una API REST.
+// No tenemos una API ni una base de datos: utilizamos una lista
+// de objetos creada manualmente con 6 contenidos de ejemplo.
+// Las portadas son URLs públicas de imágenes de Internet.
+// Si no hay conexión, la aplicación muestra un diseño alternativo.
 //
 
 import '../models/contenido.dart';
@@ -18,50 +17,62 @@ const List<Contenido> contenidos = [
 
   Contenido(
     id: 1,
-    titulo: 'Introducción a Flutter',
-    descripcion: 'Aprende a crear aplicaciones multiplataforma utilizando Flutter y Dart.',
-    tipo: 'Vídeo',
-    duracion: '15 minutos',
+    titulo: 'Stranger Things',
+    descripcion: 'Un grupo de amigos descubre un secreto que altera para siempre su pequeña ciudad.',
+    tipo: 'Ciencia ficción',
+    duracion: '4 temporadas',
+    categoria: 'Serie',
+    imagenUrl: 'https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg',
   ),
 
   Contenido(
     id: 2,
-    titulo: 'Desarrollo con Java',
-    descripcion: 'Introducción a la programación orientada a objetos con Java.',
-    tipo: 'Vídeo',
-    duracion: '25 minutos',
+    titulo: 'Wednesday',
+    descripcion: 'Wednesday Addams investiga un caso que mantiene en vilo a toda su academia.',
+    tipo: 'Misterio',
+    duracion: '2 temporadas',
+    categoria: 'Serie',
+    imagenUrl: 'https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg',
   ),
 
   Contenido(
     id: 3,
-    titulo: 'El mundo de los cómics',
-    descripcion: 'Una colección de historias y aventuras ilustradas.',
-    tipo: 'Cómic',
-    duracion: '10 páginas',
+    titulo: 'La casa de papel',
+    descripcion: 'Un atraco imposible convierte a un grupo de desconocidos en leyendas.',
+    tipo: 'Thriller',
+    duracion: '5 temporadas',
+    categoria: 'Serie',
+    imagenUrl: 'https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg',
   ),
 
   Contenido(
     id: 4,
-    titulo: 'Programación de videojuegos',
-    descripcion: 'Descubre los fundamentos de la lógica de videojuegos.',
-    tipo: 'Juego',
-    duracion: '20 minutos',
+    titulo: 'Oppenheimer',
+    descripcion: 'La historia del físico que cambió para siempre el rumbo de la humanidad.',
+    tipo: 'Drama histórico',
+    duracion: '3 h',
+    categoria: 'Película',
+    imagenUrl: 'https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg',
   ),
 
   Contenido(
     id: 5,
-    titulo: 'Bases de datos MySQL',
-    descripcion: 'Aprende los conceptos fundamentales de las bases de datos relacionales.',
-    tipo: 'Vídeo',
-    duracion: '30 minutos',
+    titulo: 'Barbie',
+    descripcion: 'Barbie descubre el mundo real y todo lo que hay detrás de la famosa muñeca.',
+    tipo: 'Comedia',
+    duracion: '1 h 54 min',
+    categoria: 'Película',
+    imagenUrl: 'https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg',
   ),
 
   Contenido(
     id: 6,
-    titulo: 'Aventuras digitales',
-    descripcion: 'Una historia interactiva para explorar el mundo digital.',
-    tipo: 'Cómic',
-    duracion: '18 páginas',
+    titulo: 'Spider-Man: Across the Spider-Verse',
+    descripcion: 'Miles Morales viaja por el multiverso y conoce a otros héroes araña.',
+    tipo: 'Animación',
+    duracion: '2 h 20 min',
+    categoria: 'Película',
+    imagenUrl: 'https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg',
   ),
 
 ];

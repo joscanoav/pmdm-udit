@@ -2,10 +2,9 @@
 //
 // PANTALLA DEL REPRODUCTOR
 //
-// Esta es una primera versión visual del reproductor.
-//
-// Todavía no reproduce vídeos reales.
-// Más adelante integraremos un reproductor multimedia.
+// Versión visual del reproductor: todavía no reproduce vídeos reales.
+// Mantenemos el mensaje de que la reproducción llegará en una
+// próxima versión.
 //
 
 import 'package:flutter/material.dart';
@@ -24,60 +23,65 @@ class ReproductorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
+      backgroundColor: const Color(0xFF0B0B10),
       appBar: AppBar(
         title: const Text('Reproductor UDITflix'),
       ),
-
       body: Center(
-
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          children: [
-
-            // Icono provisional de reproducción.
-            const Icon(
-              Icons.play_circle_fill,
-              size: 110,
-              color: Colors.deepPurple,
-            ),
-
-            const SizedBox(height: 20),
-
-            // Título del contenido seleccionado.
-            Text(
-              contenido.titulo,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Icono provisional de reproducción.
+              Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.18),
+                ),
+                child: Icon(
+                  Icons.play_circle_fill,
+                  size: 96,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
               ),
-            ),
 
-            const SizedBox(height: 10),
+              const SizedBox(height: 24),
 
-            // Mensaje que indica que es una versión provisional.
-            const Text(
-              'Reproductor provisional',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
+              // Título del contenido seleccionado.
+              Text(
+                contenido.titulo,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 10),
 
-            const Text(
-              'En una próxima versión incorporaremos\n'
-              'la reproducción multimedia.',
-              textAlign: TextAlign.center,
-            ),
+              // Mensaje que indica que es una versión provisional.
+              const Text(
+                'Reproductor provisional',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
 
-          ],
+              const SizedBox(height: 20),
+
+              const Text(
+                'En una próxima versión incorporaremos\n'
+                'la reproducción multimedia.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white70),
+              ),
+            ],
+          ),
         ),
       ),
     );
